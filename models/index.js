@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Konfigurasi koneksi Sequelize
-const sequelize = new Sequelize('db_uasdpsi6', 'root', '', {
+const sequelize = new Sequelize('db_uasdpsi8', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
 });
