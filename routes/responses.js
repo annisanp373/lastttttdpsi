@@ -40,16 +40,6 @@ router.get('/', [authenticate, authorize(['staff'])], async (req, res) => {
                 {
                     model: Response,
                     as: 'response'
-                },
-                {
-                    model: User,
-                    as: 'student',
-                    attributes: ['id', 'name', 'email']
-                },
-                {
-                    model: User,
-                    as: 'staff',
-                    attributes: ['id', 'name', 'email']
                 }
             ]
         });
