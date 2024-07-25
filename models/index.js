@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
 // Konfigurasi koneksi Sequelize
-const sequelize = new Sequelize('db_uasdpsi8', 'root', '', {
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
     dialect: 'mysql'
 });
 
@@ -21,12 +21,8 @@ Complaint.hasOne(Response, { foreignKey: 'complaintId', as: 'response' });
 
 // Sinkronkan model dengan database
 sequelize.sync()
-  .then(() => {
-    console.log('Database synchronized');
-  })
-  .catch(err => {
-    console.error('Error synchronizing database:', err);
-  });
+  .then(() => console.log('Database synchronized'))
+  .catch(err => console.error('Error synchronizing database:', err));
 
 module.exports = {
     sequelize,
